@@ -30,8 +30,6 @@ Nel corso dello sviluppo e della rifinitura di questo portfolio ho applicato e c
 ## I Miei Progetti
 
 > **Nota sul Work in Progress:** Il portfolio è in continua evoluzione e crescerà di pari passo con il mio percorso di formazione.
-
-* **Progetti Completati:** Attualmente è presente un solo progetto interamente terminato e rifinito, integrato all'interno della piattaforma.
 * **In Fase di Sviluppo:** Ulteriori progetti e sfide tecniche sono in fase di lavorazione e verranno aggiunti progressivamente non appena conclusi.
 
 ---
@@ -44,7 +42,7 @@ Nel corso dello sviluppo e della rifinitura di questo portfolio ho applicato e c
 
 ## Contatti & Networking
 
-Se vuoi dare un'occhiata ai miei lavori, collaborare a un progetto o semplicemente fare due chiacchiere sul mondo del Front-End, puoi trovarmi qui:
+Per progetti o proposte lavorative, puoi trovarmi qui:
 
 * **Email:** [lidiaauriemma@outlook.it](mailto:lidiaauriemma@outlook.it)
 * **LinkedIn:** [Lidiaauri](https://www.linkedin.com/in/Lidiaauri) 
