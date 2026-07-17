@@ -457,6 +457,25 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
+/* PACKAGE LIST (click-to-reveal on sub-pages) */
+.package-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.package-list li {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.package-list li:last-child {
+  border-bottom: none;
+}
+
 /* CARD PRICE BADGE */
 .card-price {
   color: white;
