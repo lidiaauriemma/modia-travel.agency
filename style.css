@@ -402,6 +402,61 @@ nav a:hover {
   letter-spacing: 0.5px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
+/* CARD DETAILS (click-to-reveal) */
+.card-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+  width: 100%;
+}
+
+.card.active .card-details {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.card.active .overlay {
+  background: linear-gradient(
+    to top,
+    rgba(28, 35, 49, 0.85) 0%,
+    rgba(28, 35, 49, 0.3) 100%
+  );
+}
+
+.card-details p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 12px 0 10px 0;
+}
+
+.card-season {
+  color: var(--accent-gold);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.btn-card {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 50px;
+  background: var(--accent-gold);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-card:hover {
+  background: #b8976e;
+  transform: translateY(-2px);
+}
+
 /* LUXURY SERVICES */
 .luxury-services {
   display: grid;
