@@ -457,6 +457,19 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
+/* CARD PRICE BADGE */
+.card-price {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 8px;
+  padding: 6px 16px;
+  background: rgba(197, 168, 128, 0.85);
+  border-radius: 50px;
+  display: inline-block;
+  letter-spacing: 0.3px;
+}
+
 /* LUXURY SERVICES */
 .luxury-services {
   display: grid;
