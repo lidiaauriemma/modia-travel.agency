@@ -46,6 +46,6 @@ Per progetti o proposte lavorative, puoi trovarmi qui:
 
 * **Email:** [lidiaauriemma@outlook.it](mailto:lidiaauriemma@outlook.it)
 * **LinkedIn:** [Lidia Auriemma](https://www.linkedin.com/in/lidiaauriemma)
-* **e-Commerce:** [Lily's](https://lidiaauriemma.infy.click)
+* **e-Commerce:** [Lily's](https://lidiaauriemma.infy.click) - in fase di sviluppo
 ---
 <p align="center"><i>Questo progetto rappresenta il mio percorso attuale di apprendimento e pratica nello sviluppo Front-End. Powered by Lily.</i></p>
