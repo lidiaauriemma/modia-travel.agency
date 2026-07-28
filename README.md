@@ -45,6 +45,7 @@ Nel corso dello sviluppo e della rifinitura di questo portfolio ho applicato e c
 Per progetti o proposte lavorative, puoi trovarmi qui:
 
 * **Email:** [lidiaauriemma@outlook.it](mailto:lidiaauriemma@outlook.it)
-* **LinkedIn:** [Lidiaauri](https://www.linkedin.com/in/Lidiaauri) 
+* **LinkedIn:** [Lidiaauri](https://www.linkedin.com/in/lidiaauriemma)
+* **e-Commerce:** [Lily's](https://lidiaauriemma.infy.click/)
 ---
 <p align="center"><i>Questo progetto rappresenta il mio percorso attuale di apprendimento e pratica nello sviluppo Front-End. Powered by Lily.</i></p>
