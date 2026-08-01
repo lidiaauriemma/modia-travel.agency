@@ -2,67 +2,77 @@
 const urlMaldive =
   "https://api.open-meteo.com/v1/forecast?latitude=3.20&longitude=73.22&current_weather=true";
 
-fetch(urlMaldive)
-  .then((risposta) => risposta.json())
-  .then((dati) => {
-    const temperatura = dati.current_weather.temperature;
-    document.getElementById("meteo-maldive").innerHTML =
-      `☀️ Meteo in diretta: <strong>${temperatura}°C</strong>`;
-  })
-  .catch((errore) => {
-    document.getElementById("meteo-maldive").innerHTML =
-      "Meteo non disponibile";
-    console.error("Errore Maldive:", errore);
-  });
+const meteoMaldive = document.getElementById("meteo-maldive");
+
+if (meteoMaldive) {
+  fetch(urlMaldive)
+    .then((risposta) => risposta.json())
+    .then((dati) => {
+      const temperatura = dati.current_weather.temperature;
+      meteoMaldive.innerHTML = `☀️ Meteo in diretta: <strong>${temperatura}°C</strong>`;
+    })
+    .catch((errore) => {
+      meteoMaldive.innerHTML = "Meteo non disponibile";
+      console.error("Errore Maldive:", errore);
+    });
+}
 
 // ==================== METEO TOKYIO  ====================
 const urlTokyo =
   "https://api.open-meteo.com/v1/forecast?latitude=35.6785&longitude=139.6823&current_weather=true";
 
-fetch(urlTokyo)
-  .then((risposta) => risposta.json())
-  .then((dati) => {
-    const temperatura = dati.current_weather.temperature;
-    document.getElementById("meteo-tokyo").innerHTML =
-      `☀️<strong>${temperatura}°C</strong>`;
-  })
-  .catch((errore) => {
-    document.getElementById("meteo-tokyo").innerHTML = "Meteo non disponibile";
-    console.error("Errore Tokyo:", errore);
-  });
+const meteoTokyo = document.getElementById("meteo-tokyo");
+
+if (meteoTokyo) {
+  fetch(urlTokyo)
+    .then((risposta) => risposta.json())
+    .then((dati) => {
+      const temperatura = dati.current_weather.temperature;
+      meteoTokyo.innerHTML = `☀️<strong>${temperatura}°C</strong>`;
+    })
+    .catch((errore) => {
+      meteoTokyo.innerHTML = "Meteo non disponibile";
+      console.error("Errore Tokyo:", errore);
+    });
+}
 
 // ==================== METEO MAROCCO  ====================
 const urlMarocco =
   "https://api.open-meteo.com/v1/forecast?latitude=3.20&longitude=73.22&current_weather=true";
 
-fetch(urlMarocco)
-  .then((risposta) => risposta.json())
-  .then((dati) => {
-    const temperatura = dati.current_weather.temperature;
-    document.getElementById("meteo-marocco").innerHTML =
-      `☀️<strong>${temperatura}°C</strong>`;
-  })
-  .catch((errore) => {
-    document.getElementById("meteo-marocco").innerHTML =
-      "Meteo non disponibile";
-    console.error("Errore Marocco:", errore);
-  });
+const meteoMarocco = document.getElementById("meteo-marocco");
+
+if (meteoMarocco) {
+  fetch(urlMarocco)
+    .then((risposta) => risposta.json())
+    .then((dati) => {
+      const temperatura = dati.current_weather.temperature;
+      meteoMarocco.innerHTML = `☀️<strong>${temperatura}°C</strong>`;
+    })
+    .catch((errore) => {
+      meteoMarocco.innerHTML = "Meteo non disponibile";
+      console.error("Errore Marocco:", errore);
+    });
+}
 
 // ==================== METEO EGITTO (IL CAIRO) ====================
 const urlEgitto =
   "https://api.open-meteo.com/v1/forecast?latitude=30.06&longitude=31.25&current_weather=true";
 
-fetch(urlEgitto)
-  .then((risposta) => risposta.json())
-  .then((dati) => {
-    const temperatura = dati.current_weather.temperature;
-    document.getElementById("meteo-egitto").innerHTML =
-      `☀️<strong>${temperatura}°C</strong>`;
-  })
-  .catch((errore) => {
-    document.getElementById("meteo-egitto").innerHTML = "Meteo non disponibile";
-    console.error("Errore Egitto:", errore);
-  });
+const meteoEgitto = document.getElementById("meteo-egitto");
+
+if (meteoEgitto) {
+  fetch(urlEgitto)
+    .then((risposta) => risposta.json())
+    .then((dati) => {
+      const temperatura = dati.current_weather.temperature;
+      meteoEgitto.innerHTML = `☀️<strong>${temperatura}°C</strong>`;
+    })
+    .catch((errore) => {
+      meteoEgitto.innerHTML = "Meteo non disponibile";
+      console.error("Errore Egitto:", errore);
+    });
+}
 
 // ==================== CONVERTITORE DI VALUTA ====================
 const inputEuro = document.getElementById("euro-amount");
@@ -108,27 +118,29 @@ if (inputEuro && resEgitto && resMarocco) {
 }
 // ==================== ANIMAZIONI AL MOVIMENTO (SCROLL) ====================
 // Creiamo l'osservatore che controlla quando gli elementi entrano nello schermo
-const observer = new IntersectionObserver(
-  (elementi) => {
-    elementi.forEach((elemento) => {
-      // Se l'elemento è visibile nel browser, gli diamo la classe "visible"
-      if (elemento.isIntersecting) {
-        elemento.target.classList.add("visible");
-      }
-    });
-  },
-  {
-    threshold: 0.15,
-  },
-);
+if (typeof IntersectionObserver !== "undefined") {
+  const observer = new IntersectionObserver(
+    (elementi) => {
+      elementi.forEach((elemento) => {
+        // Se l'elemento è visibile nel browser, gli diamo la classe "visible"
+        if (elemento.isIntersecting) {
+          elemento.target.classList.add("visible");
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+    },
+  );
 
-// Selezioniamo tutte le sezioni e le card che vogliamo animare
-const elementiDaAnimare = document.querySelectorAll(
-  "section, .card, .service-card, .weather-box, .currency-card",
-);
+  // Selezioniamo tutte le sezioni e le card che vogliamo animare
+  const elementiDaAnimare = document.querySelectorAll(
+    "section, .card, .service-card, .weather-box, .currency-card",
+  );
 
-// Diciamo all'osservatore di iniziare a spiarle
-elementiDaAnimare.forEach((el) => {
-  el.classList.add("fade-in-element"); // Diamo lo stato di partenza nascosto
-  observer.observe(el);
-});
+  // Diciamo all'osservatore di iniziare a spiarle
+  elementiDaAnimare.forEach((el) => {
+    el.classList.add("fade-in-element"); // Diamo lo stato di partenza nascosto
+    observer.observe(el);
+  });
+}
