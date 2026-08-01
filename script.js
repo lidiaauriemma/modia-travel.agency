@@ -106,6 +106,20 @@ if (inputEuro && resEgitto && resMarocco) {
   // Ogni volta che l'utente cambia il numero nell'input, ricalcola da solo!
   inputEuro.addEventListener("input", calcolaCambio);
 }
+// ==================== CARD CLICK-TO-REVEAL ====================
+const cards = document.querySelectorAll(".masonry .card");
+cards.forEach((card) => {
+  card.addEventListener("click", (e) => {
+    // Non chiudere se si clicca sul bottone
+    if (e.target.classList.contains("btn-card")) return;
+    // Chiudi le altre card aperte
+    cards.forEach((c) => {
+      if (c !== card) c.classList.remove("active");
+    });
+    card.classList.toggle("active");
+  });
+});
+
 // ==================== ANIMAZIONI AL MOVIMENTO (SCROLL) ====================
 // Creiamo l'osservatore che controlla quando gli elementi entrano nello schermo
 const observer = new IntersectionObserver(
