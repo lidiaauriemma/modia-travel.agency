@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
-</head>
+  </head>
   <body>
     <nav>
       <div class="logo">MODIA</div>
@@ -28,7 +28,7 @@
     <section class="destination-page">
       <div class="destination-hero">
         <div class="destination-hero-content">
-          <span class="badge">Destinazione Signature</span>
+          <span class="badge">Destinazione</span>
           <h1>
             Un <span class="keyword">Egitto</span> di luce, storia e mare.
           </h1>
@@ -46,8 +46,10 @@
 
         <div class="destination-hero-card">
           <img
-            src="https://images.unsplash.com/photo-1548013146-72479768bada?w=1200"
+            src="egitto/assets/hero-egitto.jpg"
             alt="Piramidi d'Egitto"
+            decoding="async"
+            fetchpriority="high"
           />
           <div class="destination-hero-card-body">
             <h3>Viaggio da sogno</h3>
@@ -94,10 +96,21 @@
         </div>
         <div class="map-container" aria-label="Mappa dell'Egitto">
           <div class="map-illustration">
-            <img class="map-image" src="egitto/assets/map-egypt.png" alt="Mappa dell'Egitto" />
+            <img
+              class="map-image"
+              src="egitto/assets/map-egypt.png"
+              alt="Mappa dell'Egitto"
+              decoding="async"
+              loading="lazy"
+            />
 
             <button class="map-marker marker-cairo" type="button">
-              <img src="egitto/assets/cairo.jpg" alt="Il Cairo" />
+              <img
+                src="egitto/assets/cairo.jpg"
+                alt="Il Cairo"
+                decoding="async"
+                loading="lazy"
+              />
               <span class="marker-info">
                 <strong>Il Cairo</strong>
                 <span>Capitale storica</span>
@@ -107,7 +120,12 @@
             <div class="map-line line-cairo"></div>
 
             <button class="map-marker marker-sharm" type="button">
-              <img src="egitto/assets/sharm.jpg" alt="Sharm El Sheikh" />
+              <img
+                src="egitto/assets/sharm.jpg"
+                alt="Sharm El Sheikh"
+                decoding="async"
+                loading="lazy"
+              />
               <span class="marker-info">
                 <strong>Sharm El Sheikh</strong>
                 <span>Mare e relax</span>
@@ -117,7 +135,12 @@
             <div class="map-line line-sharm"></div>
 
             <button class="map-marker marker-marsa" type="button">
-              <img src="egitto/assets/marsa-alam.jpg" alt="Marsa Alam" />
+              <img
+                src="egitto/assets/marsa-alam.jpg"
+                alt="Marsa Alam"
+                decoding="async"
+                loading="lazy"
+              />
               <span class="marker-info">
                 <strong>Marsa Alam</strong>
                 <span>Natura incontaminata</span>
@@ -138,7 +161,12 @@
         <div class="excursions-grid">
           <article class="excursion-card">
             <div class="excursion-image">
-              <img src="egitto/assets/ras-mohammed.jpg" alt="Ras Mohammed" />
+              <img
+                src="egitto/assets/ras-mohammed.jpg"
+                alt="Ras Mohammed"
+                decoding="async"
+                loading="lazy"
+              />
             </div>
             <div class="excursion-content">
               <h3>Ras Mohammed</h3>
@@ -155,7 +183,12 @@
 
           <article class="excursion-card">
             <div class="excursion-image">
-              <img src="egitto/assets/il-cairo.jpg" alt="Il Cairo" />
+              <img
+                src="egitto/assets/il-cairo.jpg"
+                alt="Il Cairo"
+                decoding="async"
+                loading="lazy"
+              />
             </div>
             <div class="excursion-content">
               <h3>Il Cairo</h3>
@@ -172,7 +205,12 @@
 
           <article class="excursion-card">
             <div class="excursion-image">
-              <img src="egitto/assets/safari-quad.jpg" alt="Safari in Quad" />
+              <img
+                src="egitto/assets/safari-quad.jpg"
+                alt="Safari in Quad"
+                decoding="async"
+                loading="lazy"
+              />
             </div>
             <div class="excursion-content">
               <h3>Safari in Quad</h3>
@@ -188,7 +226,12 @@
 
           <article class="excursion-card">
             <div class="excursion-image">
-              <img src="egitto/assets/abu-simbel.jpg" alt="Abu Simbel" />
+              <img
+                src="egitto/assets/abu-simbel.jpg"
+                alt="Abu Simbel"
+                decoding="async"
+                loading="lazy"
+              />
             </div>
             <div class="excursion-content">
               <h3>Abu Simbel</h3>
@@ -242,7 +285,5 @@
     </footer>
 
     <script src="../script.js"></script>
-  </body>
-</html>
   </body>
 </html>
