@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Egitto | MODIA</title>
+    <link rel="icon" href="../favicon.ico" />
     <link
       rel="preload"
       href="../style.css"
@@ -49,8 +50,8 @@
       <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="../destinazioni.html">Destinazioni</a></li>
-        <li><a href="#">Egitto</a></li>
-        <li><a href="#">Contatti</a></li>
+        <li><a href="../destinazioni/egitto.html" aria-current="page">Egitto</a></li>
+        <li><a href="#" data-panel="contatti">Contatti</a></li>
       </ul>
     </nav>
 
@@ -62,14 +63,16 @@
             Un <span class="keyword">Egitto</span> di luce, storia e mare.
           </h1>
           <p>
-            Tra piramidi millenarie, tempio dorati e rive del Nilo, ogni giorno
+            Tra piramidi millenarie, templi dorati e rive del Nilo, ogni giorno
             si apre come un capitolo straordinario da vivere in modo esclusivo.
           </p>
           <div class="hero-buttons">
             <a href="../destinazioni.html" class="btn-primary"
               >Torna alle destinazioni</a
             >
-            <a href="#" class="btn-secondary">Richiedi il tuo itinerario</a>
+            <a href="#" class="btn-secondary" data-panel="contatti"
+              >Richiedi il tuo itinerario</a
+            >
           </div>
         </div>
 
@@ -77,6 +80,8 @@
           <img
             src="egitto/assets/hero-egitto.webp"
             alt="Piramidi d'Egitto"
+            width="1200"
+            height="600"
             decoding="async"
             fetchpriority="high"
           />
@@ -135,7 +140,7 @@
               loading="lazy"
             />
 
-            <button class="map-marker marker-cairo" type="button">
+            <button class="map-marker marker-cairo" type="button" data-location="cairo">
               <img
                 src="egitto/assets/cairo.webp"
                 alt="Il Cairo"
@@ -150,7 +155,7 @@
             <div class="map-pin pin-cairo"></div>
             <div class="map-line line-cairo"></div>
 
-            <button class="map-marker marker-sharm" type="button">
+            <button class="map-marker marker-sharm" type="button" data-location="sharm">
               <img
                 src="egitto/assets/sharm.webp"
                 alt="Sharm El Sheikh"
@@ -165,7 +170,7 @@
             <div class="map-pin pin-sharm"></div>
             <div class="map-line line-sharm"></div>
 
-            <button class="map-marker marker-marsa" type="button">
+            <button class="map-marker marker-marsa" type="button" data-location="marsa">
               <img
                 src="egitto/assets/marsa-alam.webp"
                 alt="Marsa Alam"
@@ -193,7 +198,7 @@
           <article class="excursion-card">
             <div class="excursion-image">
               <img
-                src="egitto/assets/ras-mohammed.webp"
+                src="egitto/assets/marsa-alam.webp"
                 alt="Ras Mohammed"
                 decoding="async"
                 loading="lazy"
@@ -207,7 +212,7 @@
               </p>
               <div class="excursion-meta">
                 <span class="price">€ 85 / pers.</span>
-                <a href="#" class="detail-link">Dettagli</a>
+                <a href="#" class="detail-link" data-excursion="ras-mohammed">Dettagli</a>
               </div>
             </div>
           </article>
@@ -215,7 +220,7 @@
           <article class="excursion-card">
             <div class="excursion-image">
               <img
-                src="egitto/assets/il-cairo.webp"
+                src="egitto/assets/cairo.webp"
                 alt="Il Cairo"
                 decoding="async"
                 loading="lazy"
@@ -229,7 +234,7 @@
               </p>
               <div class="excursion-meta">
                 <span class="price">€ 160 / pers.</span>
-                <a href="#" class="detail-link">Dettagli</a>
+                <a href="#" class="detail-link" data-excursion="il-cairo">Dettagli</a>
               </div>
             </div>
           </article>
@@ -250,7 +255,7 @@
               </p>
               <div class="excursion-meta">
                 <span class="price">€ 65 / pers.</span>
-                <a href="#" class="detail-link">Dettagli</a>
+                <a href="#" class="detail-link" data-excursion="safari-quad">Dettagli</a>
               </div>
             </div>
           </article>
@@ -272,7 +277,7 @@
               </p>
               <div class="excursion-meta">
                 <span class="price">€ 190 / pers.</span>
-                <a href="#" class="detail-link">Dettagli</a>
+                <a href="#" class="detail-link" data-excursion="abu-simbel">Dettagli</a>
               </div>
             </div>
           </article>
@@ -287,7 +292,7 @@
               </p>
               <div class="excursion-meta">
                 <span class="price">€ 140 / pers.</span>
-                <a href="#" class="detail-link">Dettagli</a>
+                <a href="#" class="detail-link" data-excursion="luxor">Dettagli</a>
               </div>
             </div>
           </article>
@@ -302,7 +307,7 @@
               </p>
               <div class="excursion-meta">
                 <span class="price">€ 450 / pers.</span>
-                <a href="#" class="detail-link">Dettagli</a>
+                <a href="#" class="detail-link" data-excursion="crociera-nilo">Dettagli</a>
               </div>
             </div>
           </article>
@@ -310,11 +315,26 @@
       </section>
     </section>
 
+    <!-- SIDE PANEL: DETTAGLI -->
+    <section class="side-panel" id="side-panel" aria-hidden="true">
+      <button class="side-panel-close" type="button" aria-label="Chiudi pannello">×</button>
+      <div class="side-panel-content">
+        <span class="side-panel-label" id="side-panel-label">Dettagli</span>
+        <h3 id="side-panel-title"></h3>
+        <img id="side-panel-image" alt="" hidden />
+        <p id="side-panel-description"></p>
+        <span class="side-panel-price" id="side-panel-price" hidden></span>
+        <a class="side-panel-action" id="side-panel-action" href="#">Richiedi questo itinerario</a>
+      </div>
+    </section>
+    <div class="side-panel-backdrop" id="side-panel-backdrop" hidden></div>
+
     <footer>
       <h2>MODIA</h2>
       <p>Explore Beyond Limits.</p>
     </footer>
 
     <script src="../script.js"></script>
+    <script src="egitto/script.js"></script>
   </body>
 </html>

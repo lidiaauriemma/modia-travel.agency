@@ -134,8 +134,10 @@ if (typeof IntersectionObserver !== "undefined") {
   );
 
   // Selezioniamo tutte le sezioni e le card che vogliamo animare
+  // (escluso il side-panel di destinazioni/egitto, che è position:fixed
+  // e verrebbe nascosto con opacity:0)
   const elementiDaAnimare = document.querySelectorAll(
-    "section, .card, .service-card, .weather-box, .currency-card",
+    "section:not(.side-panel), .card, .service-card, .weather-box, .currency-card",
   );
 
   // Diciamo all'osservatore di iniziare a spiarle
