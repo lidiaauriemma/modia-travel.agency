@@ -52,7 +52,9 @@
   padding: 24px 24px 28px;
 }
 
+.destination-hero-card-body h2,
 .destination-hero-card-body h3,
+.highlight-card h2,
 .highlight-card h3,
 .story-card h3 {
   font-family: "Plus Jakarta Sans", sans-serif;

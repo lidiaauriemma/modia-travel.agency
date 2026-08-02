@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Le destinazioni esclusive di MODIA: Egitto, Zanzibar, Marocco, Maldive, Parigi e Tokyo. Itinerari su misura, resort esclusivi e concierge H24."
+    />
     <title>Destinazioni | MODIA</title>
+    <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
@@ -12,165 +17,196 @@
   </head>
 
   <body>
-    <nav>
-      <div class="logo">MODIA</div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="destinazioni.html">Destinazioni</a></li>
-        <li><a href="destinazioni/egitto.html">Egitto</a></li>
-        <li><a href="#">Contatti</a></li>
-      </ul>
-    </nav>
+    <header>
+      <nav>
+        <div class="logo">MODIA</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinazioni.html" aria-current="page">Destinazioni</a></li>
+          <li><a href="destinazioni/egitto.html">Egitto</a></li>
+          <li><a href="index.html#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <section class="destinations-page">
-      <div class="title">
-        <span>DESTINAZIONI ESCLUSIVE</span>
-        <h1>Luoghi che meritano di essere vissuti.</h1>
-      </div>
+    <main>
+      <section class="destinations-page">
+        <div class="title">
+          <span>DESTINAZIONI ESCLUSIVE</span>
+          <h1>Luoghi che meritano di essere vissuti.</h1>
+        </div>
 
-      <div class="masonry">
-        <div class="card large">
-          <a href="destinazioni/egitto.html" class="card-link">
+        <div class="masonry">
+          <div class="card large">
+            <a href="destinazioni/egitto.html" class="card-link">
+              <img
+                src="https://i.pinimg.com/736x/5f/3d/c7/5f3dc77bbf6d543c2c08fd0aaca00419.jpg"
+                alt="Piramidi d'Egitto"
+                width="736"
+                height="560"
+                loading="lazy"
+              />
+              <div class="overlay">
+                <h3>Egitto</h3>
+              </div>
+            </a>
+          </div>
+
+          <div class="card">
             <img
-              src="https://i.pinimg.com/736x/5f/3d/c7/5f3dc77bbf6d543c2c08fd0aaca00419.jpg"
+              src="https://i.pinimg.com/1200x/5f/27/72/5f2772771f6ebbfa1030774a7bd30043.jpg"
+              alt="Spiaggia di Zanzibar"
+              width="1200"
+              height="280"
+              loading="lazy"
             />
             <div class="overlay">
-              <h3>Egitto</h3>
+              <h3>Zanzibar</h3>
             </div>
-          </a>
-        </div>
-
-        <div class="card">
-          <img
-            src="https://i.pinimg.com/1200x/5f/27/72/5f2772771f6ebbfa1030774a7bd30043.jpg"
-          />
-          <div class="overlay">
-            <h3>Zanzibar</h3>
-          </div>
-        </div>
-
-        <div class="card">
-          <img
-            src="https://i.pinimg.com/736x/d9/da/a5/d9daa57fc3a2e01b69d20cad8d2c2d2e.jpg"
-          />
-          <div class="overlay">
-            <h3>Marocco</h3>
-          </div>
-        </div>
-
-        <div class="card tall">
-          <img
-            src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200"
-          />
-          <div class="overlay">
-            <h3>Maldive</h3>
-          </div>
-        </div>
-
-        <div class="card">
-          <img
-            src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1200"
-          />
-          <div class="overlay">
-            <h3>Parigi</h3>
-          </div>
-        </div>
-
-        <div class="card">
-          <img
-            src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200"
-          />
-          <div class="overlay">
-            <h3>Tokyo</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="luxury-services">
-      <div class="service-card">
-        <span class="service-icon">✦</span>
-        <h3>Itinerari Su Misura</h3>
-        <p>
-          Ogni dettaglio è disegnato intorno ai tuoi desideri, per un viaggio
-          unico al mondo.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">✦</span>
-        <h3>Resort Esclusivi</h3>
-        <p>
-          Accesso selezionato alle strutture più prestigiose e riservate del
-          pianeta.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">✦</span>
-        <h3>Concierge H24</h3>
-        <p>
-          Un assistente personale a tua disposizione in ogni momento del
-          viaggio.
-        </p>
-      </div>
-    </section>
-    <!----METEO-->
-    <section class="live-weather-section">
-      <div class="title">
-        <span>METEO IN DIRETTA</span>
-        <h2>Pianifica la tua prossima partenza</h2>
-      </div>
-
-      <div class="weather-grid">
-        <div class="weather-box">
-          <h4>Tokyo, Giappone</h4>
-          <div id="meteo-tokyo" class="temp-loading">Caricamento...</div>
-        </div>
-        <div class="weather-box">
-          <h4>Marrakech, Marocco</h4>
-          <div id="meteo-marocco" class="temp-loading">Caricamento...</div>
-        </div>
-        <div class="weather-box">
-          <h4>Il Cairo, Egitto</h4>
-          <div id="meteo-egitto" class="temp-loading">Caricamento...</div>
-        </div>
-      </div>
-    </section>
-
-    <!--- API VALUTA -->
-    <section class="currency-section">
-      <div class="title">
-        <span>STRUMENTI DI VIAGGIO</span>
-        <h2>Cambio Valuta in Tempo Reale</h2>
-        <p>
-          Calcola il valore del tuo budget nelle monete locali delle nostre
-          destinazioni.
-        </p>
-      </div>
-      <div class="currency-card">
-        <div class="input-group">
-          <label>Importo in Euro (€)</label>
-          <input type="number" id="euro-amount" value="100" min="1" />
-        </div>
-
-        <div class="conversion-results">
-          <div class="result-box">
-            <span class="currency-name">🇪🇬 Egitto (EGP)</span>
-            <div id="valore-egitto" class="currency-value">Calcolo...</div>
           </div>
 
-          <div class="result-box">
-            <span class="currency-name">🇲🇦 Marocco (MAD)</span>
-            <div id="valore-marocco" class="currency-value">Calcolo...</div>
+          <div class="card">
+            <img
+              src="https://i.pinimg.com/736x/d9/da/a5/d9daa57fc3a2e01b69d20cad8d2c2d2e.jpg"
+              alt="Paesaggio del Marocco"
+              width="736"
+              height="280"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Marocco</h3>
+            </div>
+          </div>
+
+          <div class="card tall">
+            <img
+              src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200"
+              alt="Villa sull'acqua alle Maldive"
+              width="1200"
+              height="585"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Maldive</h3>
+            </div>
+          </div>
+
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1200"
+              alt="Veduta di Parigi con la Tour Eiffel"
+              width="1200"
+              height="280"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Parigi</h3>
+            </div>
+          </div>
+
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200"
+              alt="Incrocio illuminato a Tokyo"
+              width="1200"
+              height="280"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Tokyo</h3>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!--- API VALUTA -->
+      </section>
+
+      <section class="luxury-services">
+        <div class="service-card">
+          <span class="service-icon">✦</span>
+          <h2>Itinerari Su Misura</h2>
+          <p>
+            Ogni dettaglio è disegnato intorno ai tuoi desideri, per un viaggio
+            unico al mondo.
+          </p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">✦</span>
+          <h2>Resort Esclusivi</h2>
+          <p>
+            Accesso selezionato alle strutture più prestigiose e riservate del
+            pianeta.
+          </p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">✦</span>
+          <h2>Concierge H24</h2>
+          <p>
+            Un assistente personale a tua disposizione in ogni momento del
+            viaggio.
+          </p>
+        </div>
+      </section>
+
+      <!----METEO-->
+      <section class="live-weather-section">
+        <div class="title">
+          <span>METEO IN DIRETTA</span>
+          <h2>Pianifica la tua prossima partenza</h2>
+        </div>
+
+        <div class="weather-grid">
+          <div class="weather-box">
+            <h3>Tokyo, Giappone</h3>
+            <div id="meteo-tokyo" class="temp-loading">Caricamento...</div>
+          </div>
+          <div class="weather-box">
+            <h3>Marrakech, Marocco</h3>
+            <div id="meteo-marocco" class="temp-loading">Caricamento...</div>
+          </div>
+          <div class="weather-box">
+            <h3>Il Cairo, Egitto</h3>
+            <div id="meteo-egitto" class="temp-loading">Caricamento...</div>
+          </div>
+        </div>
+      </section>
+
+      <!--- API VALUTA -->
+      <section class="currency-section">
+        <div class="title">
+          <span>STRUMENTI DI VIAGGIO</span>
+          <h2>Cambio Valuta in Tempo Reale</h2>
+          <p>
+            Calcola il valore del tuo budget nelle monete locali delle nostre
+            destinazioni.
+          </p>
+        </div>
+        <div class="currency-card">
+          <div class="input-group">
+            <label for="euro-amount">Importo in Euro (€)</label>
+            <input type="number" id="euro-amount" value="100" min="1" />
+          </div>
+
+          <div class="conversion-results">
+            <div class="result-box">
+              <span class="currency-name">🇪🇬 Egitto (EGP)</span>
+              <div id="valore-egitto" class="currency-value">Calcolo...</div>
+            </div>
+
+            <div class="result-box">
+              <span class="currency-name">🇲🇦 Marocco (MAD)</span>
+              <div id="valore-marocco" class="currency-value">Calcolo...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--- API VALUTA -->
+    </main>
 
     <footer>
-      <h2>MODIA</h2>
+      <p class="footer-brand">MODIA</p>
 
       <p>Explore Beyond Limits.</p>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
