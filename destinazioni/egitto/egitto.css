@@ -309,6 +309,9 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1100;
+  /* Il backdrop non intercetta i click: la pagina resta navigabile
+     anche a pannello aperto (click esterno = chiusura + azione). */
+  pointer-events: none;
 }
 
 .side-panel-backdrop.active {
@@ -334,10 +337,10 @@
 
 .side-panel {
   position: fixed;
-  top: 0;
+  top: 80px;
   right: 0;
   width: min(92vw, 380px);
-  height: 100vh;
+  height: calc(100vh - 80px);
   background: rgba(251, 249, 245, 0.98);
   box-shadow: -16px 0 40px rgba(47, 36, 22, 0.16);
   border-left: 1px solid rgba(197, 168, 128, 0.2);

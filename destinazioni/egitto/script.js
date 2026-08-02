@@ -9,7 +9,7 @@ const LOCATIONS = {
   cairo: {
     label: "Il Cairo",
     title: "Il Cairo, capitale storica",
-    image: "assets/cairo.webp",
+    image: "egitto/assets/cairo.webp",
     alt: "Il Cairo",
     description:
       "Tour privato guidato alle Piramidi di Giza, la Sfinge e il Museo Egizio, nel cuore di una capitale millenaria.",
@@ -18,7 +18,7 @@ const LOCATIONS = {
   sharm: {
     label: "Sharm El Sheikh",
     title: "Sharm El Sheikh, mare e relax",
-    image: "assets/sharm.webp",
+    image: "egitto/assets/sharm.webp",
     alt: "Sharm El Sheikh",
     description:
       "Immersioni, resort esclusivi e giornate di relax sul Mar Rosso, tra barriere coralline e acque cristalline.",
@@ -27,7 +27,7 @@ const LOCATIONS = {
   marsa: {
     label: "Marsa Alam",
     title: "Marsa Alam, natura incontaminata",
-    image: "assets/marsa-alam.webp",
+    image: "egitto/assets/marsa-alam.webp",
     alt: "Marsa Alam",
     description:
       "Baie selvagge, barriere coralline incontaminate e spiagge di sabbia bianca lungo la costa del Mar Rosso.",
@@ -40,7 +40,7 @@ const EXCURSIONS = {
   "ras-mohammed": {
     label: "Escursione",
     title: "Ras Mohammed",
-    image: "assets/marsa-alam.webp",
+    image: "egitto/assets/marsa-alam.webp",
     alt: "Ras Mohammed",
     description:
       "Snorkeling e immersioni nel parco nazionale marino del Mar Rosso, con soste nelle baie più spettacolari.",
@@ -49,7 +49,7 @@ const EXCURSIONS = {
   "il-cairo": {
     label: "Escursione",
     title: "Il Cairo",
-    image: "assets/cairo.webp",
+    image: "egitto/assets/cairo.webp",
     alt: "Il Cairo",
     description:
       "Tour privato guidato alle Piramidi di Giza, la Sfinge e il Museo Egizio, con trasporto e guida dedicata.",
@@ -58,7 +58,7 @@ const EXCURSIONS = {
   "safari-quad": {
     label: "Escursione",
     title: "Safari in Quad",
-    image: "assets/safari-quad.webp",
+    image: "egitto/assets/safari-quad.webp",
     alt: "Safari in Quad",
     description:
       "Avventura al tramonto nel deserto con cena beduina e spettacolo sotto le stelle.",
@@ -67,7 +67,7 @@ const EXCURSIONS = {
   "abu-simbel": {
     label: "Escursione",
     title: "Abu Simbel",
-    image: "assets/abu-simbel.webp",
+    image: "egitto/assets/abu-simbel.webp",
     alt: "Abu Simbel",
     description:
       "Visita ai maestosi templi di Ramses II e Nefertari scolpiti nella roccia, a sud del Lago Nasser.",
@@ -161,7 +161,6 @@ const CONTACT_DATA = {
     panel.setAttribute("aria-hidden", "false");
     backdrop.hidden = false;
     requestAnimationFrame(() => backdrop.classList.add("active"));
-    document.body.style.overflow = "hidden";
     requestAnimationFrame(() => closeButton.focus());
   }
 
@@ -170,12 +169,21 @@ const CONTACT_DATA = {
     panel.setAttribute("aria-hidden", "true");
     backdrop.classList.remove("active");
     backdrop.hidden = true;
-    document.body.style.overflow = "";
     if (lastTrigger) lastTrigger.focus();
   }
 
   closeButton.addEventListener("click", closePanel);
-  backdrop.addEventListener("click", closePanel);
+
+  // Click fuori dal pannello chiude, senza intercettare il click:
+  // il backdrop è pointer-events:none, quindi l'elemento sotto riceve
+  // comunque il suo click e la pagina resta sempre navigabile.
+  document.addEventListener("click", (event) => {
+    if (!panel.classList.contains("active")) return;
+    if (panel.contains(event.target)) return;
+    if (event.target.closest(".map-marker, .detail-link, [data-panel]")) return;
+    closePanel();
+  });
+
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && panel.classList.contains("active")) {
       closePanel();
@@ -186,7 +194,13 @@ const CONTACT_DATA = {
   document.querySelectorAll(".map-marker[data-location]").forEach((marker) => {
     const location = LOCATIONS[marker.dataset.location];
     if (!location) return;
-    marker.addEventListener("click", () => openPanel(location, marker));
+    marker.addEventListener("click", () => {
+      if (panel.classList.contains("active") && lastTrigger === marker) {
+        closePanel();
+      } else {
+        openPanel(location, marker);
+      }
+    });
   });
 
   // Link "Dettagli" delle escursioni
@@ -195,7 +209,11 @@ const CONTACT_DATA = {
     if (!excursion) return;
     link.addEventListener("click", (event) => {
       event.preventDefault();
-      openPanel(excursion, link);
+      if (panel.classList.contains("active") && lastTrigger === link) {
+        closePanel();
+      } else {
+        openPanel(excursion, link);
+      }
     });
   });
 
@@ -203,7 +221,11 @@ const CONTACT_DATA = {
   document.querySelectorAll('[data-panel="contatti"]').forEach((trigger) => {
     trigger.addEventListener("click", (event) => {
       event.preventDefault();
-      openPanel(CONTACT_DATA, trigger);
+      if (panel.classList.contains("active") && lastTrigger === trigger) {
+        closePanel();
+      } else {
+        openPanel(CONTACT_DATA, trigger);
+      }
     });
   });
 })();
