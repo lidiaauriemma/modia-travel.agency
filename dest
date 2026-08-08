@@ -1,0 +1,132 @@
+// ==================== SIDE PANEL: DETTAGLI METE (MAPPA) ====================
+// Il CSS del pannello (.side-panel, .side-panel-backdrop) è in egitto.css.
+// Questo script rende interattivi i marker della mappa: li clicchi e si apre
+// il pannello con foto e descrizione della località.
+// I link "Dettagli" e "Contatti" puntano a pagine reali (href) e navigano
+// senza essere intercettati: la navigazione del sito resta sempre libera.
+
+const CONTACT_EMAIL = "info@modia.travel";
+
+// Località segnate sulla mappa
+const LOCATIONS = {
+  cairo: {
+    label: "Il Cairo",
+    title: "Il Cairo, capitale storica",
+    image: "egitto/assets/cairo.webp",
+    alt: "Il Cairo",
+    description:
+      "Tour privato guidato alle Piramidi di Giza, la Sfinge e il Museo Egizio, nel cuore di una capitale millenaria.",
+    price: null,
+  },
+  sharm: {
+    label: "Sharm El Sheikh",
+    title: "Sharm El Sheikh, mare e relax",
+    image: "egitto/assets/sharm.webp",
+    alt: "Sharm El Sheikh",
+    description:
+      "Immersioni, resort esclusivi e giornate di relax sul Mar Rosso, tra barriere coralline e acque cristalline.",
+    price: null,
+  },
+  marsa: {
+    label: "Marsa Alam",
+    title: "Marsa Alam, natura incontaminata",
+    image: "egitto/assets/marsa-alam.webp",
+    alt: "Marsa Alam",
+    description:
+      "Baie selvagge, barriere coralline incontaminate e spiagge di sabbia bianca lungo la costa del Mar Rosso.",
+    price: null,
+  },
+};
+
+(() => {
+  const panel = document.getElementById("side-panel");
+  if (!panel) return;
+
+  const backdrop = document.getElementById("side-panel-backdrop");
+  const closeButton = panel.querySelector(".side-panel-close");
+  const label = document.getElementById("side-panel-label");
+  const title = document.getElementById("side-panel-title");
+  const image = document.getElementById("side-panel-image");
+  const description = document.getElementById("side-panel-description");
+  const price = document.getElementById("side-panel-price");
+  const action = document.getElementById("side-panel-action");
+
+  let lastTrigger = null;
+
+  function render(data) {
+    label.textContent = data.label || "Dettagli";
+    title.textContent = data.title || "";
+    description.textContent = data.description || "";
+
+    if (data.image) {
+      image.src = data.image;
+      image.alt = data.alt || "";
+      image.hidden = false;
+    } else {
+      image.removeAttribute("src");
+      image.removeAttribute("alt");
+      image.hidden = true;
+    }
+
+    if (data.price) {
+      price.textContent = data.price;
+      price.hidden = false;
+    } else {
+      price.textContent = "";
+      price.hidden = true;
+    }
+
+    action.textContent = "Richiedi questo itinerario";
+    action.href = `../index.html#contatti`;
+  }
+
+  function openPanel(data, trigger) {
+    render(data);
+    lastTrigger = trigger;
+    panel.classList.add("active");
+    panel.setAttribute("aria-hidden", "false");
+    panel.inert = false;
+    backdrop.hidden = false;
+    requestAnimationFrame(() => backdrop.classList.add("active"));
+    requestAnimationFrame(() => closeButton.focus());
+  }
+
+  function closePanel() {
+    panel.classList.remove("active");
+    panel.setAttribute("aria-hidden", "true");
+    panel.inert = true;
+    backdrop.classList.remove("active");
+    backdrop.hidden = true;
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  closeButton.addEventListener("click", closePanel);
+
+  // Click fuori dal pannello chiude senza intercettare il click:
+  // il backdrop è pointer-events:none, quindi la pagina resta navigabile.
+  document.addEventListener("click", (event) => {
+    if (!panel.classList.contains("active")) return;
+    if (panel.contains(event.target)) return;
+    if (event.target.closest(".map-marker")) return;
+    closePanel();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && panel.classList.contains("active")) {
+      closePanel();
+    }
+  });
+
+  // Marker della mappa
+  document.querySelectorAll(".map-marker[data-location]").forEach((marker) => {
+    const location = LOCATIONS[marker.dataset.location];
+    if (!location) return;
+    marker.addEventListener("click", () => {
+      if (panel.classList.contains("active") && lastTrigger === marker) {
+        closePanel();
+      } else {
+        openPanel(location, marker);
+      }
+    });
+  });
+})();
